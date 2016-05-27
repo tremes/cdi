@@ -20,12 +20,9 @@ package javax.enterprise.inject.spi.builder;
 import javax.enterprise.event.Reception;
 import javax.enterprise.event.TransactionPhase;
 import javax.enterprise.inject.spi.AfterBeanDiscovery;
-import javax.enterprise.inject.spi.AnnotatedMethod;
 import javax.enterprise.inject.spi.EventMetadata;
 import javax.enterprise.inject.spi.ObserverMethod;
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -43,46 +40,6 @@ import java.util.function.Consumer;
  */
 public interface ObserverMethodConfigurator<T> {
 
-    /**
-     * Read observer meta data from a existing {@link java.lang.reflect.Method}
-     *
-     * @param method to read meta data from
-     * @return self
-     */
-    ObserverMethodConfigurator<T> read(Method method);
-
-    /**
-     * Read observer meta data from a existing {@link AnnotatedMethod}
-     *
-     * @param method to read meta data from
-     * @return self
-     */
-    ObserverMethodConfigurator<T> read(AnnotatedMethod<?> method);
-
-    /**
-     * Read observer meta data from a existing ObserverMethod
-     *
-     * @param method to read meta data from
-     * @return self
-     */
-    ObserverMethodConfigurator<T> read(ObserverMethod<T> method);
-
-    /**
-     * Set the class of the Bean containing this observer.
-     * If not set, the extension class is used.
-     *
-     * @param type the bean class containing this configurator.
-     * @return self
-     */
-    ObserverMethodConfigurator<T> beanClass(Class<?> type);
-
-    /**
-     * Set the type of the observed event
-     *
-     * @param type of the observed event
-     * @return self
-     */
-    ObserverMethodConfigurator<T> observedType(Type type);
 
     /**
      * Add the qualifier to the observed event

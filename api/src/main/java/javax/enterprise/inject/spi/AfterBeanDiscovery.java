@@ -18,6 +18,7 @@ package javax.enterprise.inject.spi;
 
 import javax.enterprise.context.spi.Context;
 import javax.enterprise.inject.spi.builder.BeanConfigurator;
+import javax.enterprise.inject.spi.builder.ObserverMethodBuilder;
 import javax.enterprise.inject.spi.builder.ObserverMethodConfigurator;
 
 /**
@@ -105,7 +106,7 @@ public interface AfterBeanDiscovery {
      * @throws IllegalStateException if called outside of the observer method invocation
      * @since 2.0
      */
-    public <T> ObserverMethodConfigurator<T> addObserverMethod();
+    public <T> ObserverMethodBuilder<T> addObserverMethod();
 
     /**
      * Registers a custom {@link javax.enterprise.context.spi.Context} object with the container.
